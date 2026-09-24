@@ -11,11 +11,16 @@
 <script>
   const telefono = "5219993547812";
 
-  const mensaje = `Hola 👋 me interesa mucho conocer la cuponera y todos los beneficios que tiene 🤩 ¿Me comparten la información para saber cómo puedo obtenerla?`;
+  const saludo = "\u{1F44B}";   // 👋
+  const emocion = "\u{1F929}"; // 🤩
 
-  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  const mensaje =
+    `Hola ${saludo} me interesa mucho conocer la cuponera y todos los beneficios que tiene ${emocion} ¿Me comparten la información para saber cómo puedo obtenerla?`;
 
-  window.location.replace(url);
+  const url =
+    `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+  window.location.href = url;
 </script>
 
 </body>
