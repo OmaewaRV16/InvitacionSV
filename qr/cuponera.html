@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#CFFF28">
+  <meta name="description" content="Cuponera digital de Sociedad Valiente. Encuentra beneficios, descuentos y servicios disponibles.">
+  <title>Cuponera | Sociedad Valiente</title>
+
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=6">
+</head>
+<body>
+  <header class="hero">
+    <img class="brand-shape brand-shape-ring" src="./assets/shape-ring.png" alt="" aria-hidden="true">
+    <img class="brand-shape brand-shape-slash" src="./assets/shape-slash.png" alt="" aria-hidden="true">
+
+    <div class="hero-inner">
+      <div class="hero-brand-row">
+        <img src="./assets/brand-logo.png" alt="Sociedad Valiente" class="hero-logo">
+        <span class="hero-badge">CUPONERA DIGITAL</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">CUPONERA SOLIDARIA DE</p>
+          <h1>
+            PROMOCIONES Y<br>
+            DESCUENTOS<br>
+            <span>APROVECHA.</span>
+          </h1>
+          <p class="hero-description">
+            Salud, educación, servicios, alimentos, bienestar y mucho más en un solo lugar.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#beneficios" class="btn-primary">VER BENEFICIOS</a>
+            <button id="heroChatButton" class="btn-secondary" type="button">¿QUÉ ESTÁS BUSCANDO?</button>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumen de la cuponera">
+          <span class="hero-card-label">SOCIEDAD VALIENTE</span>
+          <strong id="benefitCount">—</strong>
+          <p>beneficios activos</p>
+          <div class="hero-card-line"></div>
+          <span id="categoryCount">— categorías disponibles</span>
+          <img src="./assets/brand-icon.png" alt="" aria-hidden="true" class="hero-card-icon">
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main id="beneficios" class="page-shell">
+    <section class="section-heading">
+      <div>
+        <span class="section-number">01</span>
+        <p>EXPLORA LA RED DE BENEFICIOS</p>
+      </div>
+      <h2>¿QUÉ NECESITAS HOY?</h2>
+    </section>
+
+    <section class="tools" aria-label="Buscar y filtrar cupones">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/>
+        </svg>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Busca: dentista, lentes, comida, abogado..."
+          autocomplete="off"
+          aria-label="Buscar beneficios"
+        >
+        <button id="clearSearch" class="clear-search" type="button" aria-label="Limpiar búsqueda">×</button>
+      </div>
+
+      <div id="categoryScroller" class="category-scroller at-start" aria-label="Navegación de categorías">
+        <button
+          id="categoryPrev"
+          class="category-arrow category-arrow-prev"
+          type="button"
+          aria-label="Ver categorías anteriores"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <div id="categories" class="categories" aria-label="Categorías de beneficios"></div>
+
+        <button
+          id="categoryNext"
+          class="category-arrow category-arrow-next"
+          type="button"
+          aria-label="Ver más categorías"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="results-row">
+        <span id="resultsCount">Cargando beneficios...</span>
+        <span class="results-hint">Toca una categoría o escribe lo que buscas.</span>
+      </div>
+    </section>
+
+    <section id="couponGrid" class="coupon-grid" aria-live="polite"></section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <div class="empty-circle">?</div>
+      <h2>No encontramos ese beneficio</h2>
+      <p>Prueba con otra palabra o usa el asistente para ayudarte a encontrarlo.</p>
+      <button id="emptyChatButton" type="button" class="btn-primary btn-inline">ABRIR ASISTENTE</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="./assets/brand-logo.png" alt="Sociedad Valiente" class="footer-logo">
+      <p>Beneficios, servicios y oportunidades para la comunidad.</p>
+      <a href="https://api.whatsapp.com/send?phone=5219993547812" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </footer>
+
+  <button
+    id="chatbotButton"
+    class="chatbot-button"
+    type="button"
+    aria-label="Abrir asistente de beneficios"
+    aria-controls="chatPanel"
+    aria-expanded="false"
+  >
+    <span class="chatbot-status" aria-hidden="true"></span>
+    <img src="./assets/brand-icon.png" alt="" aria-hidden="true">
+    <span class="chatbot-tooltip">¿Buscas algo?</span>
+  </button>
+
+  <section id="chatPanel" class="chat-panel" aria-label="Asistente de beneficios" aria-hidden="true">
+    <header class="chat-header">
+      <div class="chat-brand">
+        <img src="./assets/brand-icon.png" alt="" aria-hidden="true">
+        <div>
+          <strong>Sociedad Valiente</strong>
+          <span>Asistente de beneficios</span>
+        </div>
+      </div>
+      <button id="chatClose" class="chat-close" type="button" aria-label="Cerrar chat">×</button>
+    </header>
+
+    <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+
+    <div id="chatQuickReplies" class="chat-quick-replies">
+      <button type="button" data-chat-action="all">Ver beneficios</button>
+      <button type="button" data-chat-action="search">Buscar servicio</button>
+      <button type="button" data-chat-action="whatsapp">Ir a WhatsApp</button>
+    </div>
+
+    <form id="chatForm" class="chat-form">
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ej. dentista, lentes, fisioterapia..."
+        autocomplete="off"
+        maxlength="120"
+        aria-label="Escribe qué beneficio buscas"
+      >
+      <button type="submit" aria-label="Enviar mensaje">➤</button>
+    </form>
+
+    <a id="chatWhatsappLink" class="chat-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer">
+      CONTINUAR POR WHATSAPP
+    </a>
+  </section>
+
+  <div id="chatBackdrop" class="chat-backdrop" aria-hidden="true"></div>
+
+  <script src="./app.js?v=6"></script>
+</body>
+</html>
